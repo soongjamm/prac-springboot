@@ -32,11 +32,11 @@ public class PostsApiContollerTest {
     private TestRestTemplate restTemplate;
 
     @Autowired
-    private PostsRepository postsRepository3;
+    private PostsRepository postsRepository;
 
     @After
     public void tearDown() throws Exception {
-        postsRepository3.deleteAll();
+        postsRepository.deleteAll();
     }
 
     @Test
@@ -57,7 +57,7 @@ public class PostsApiContollerTest {
         assertThat(responseEntity.getBody())
                 .isGreaterThan(0L);
 
-        List<Posts> all = postsRepository3.findAll();
+        List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(title);
         assertThat(all.get(0).getContent()).isEqualTo(content);
     }
@@ -65,7 +65,7 @@ public class PostsApiContollerTest {
     @Test
     public void Posts_수정된다() throws Exception {
         //given
-        Posts savedPosts = postsRepository3.save(Posts.builder()
+        Posts savedPosts = postsRepository.save(Posts.builder()
                 .title("title")
                 .content("content")
                 .author("author")
@@ -93,7 +93,7 @@ public class PostsApiContollerTest {
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
 
-        List<Posts> all = postsRepository3.findAll();
+        List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }

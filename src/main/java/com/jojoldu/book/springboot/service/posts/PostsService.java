@@ -7,8 +7,8 @@ import com.jojoldu.book.springboot.web.dto.PostsSaveRequestDto;
 import com.jojoldu.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 
 @RequiredArgsConstructor
 @Service
