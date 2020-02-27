@@ -10,4 +10,9 @@ public class IndexController {
     public String index() {
          return "index";
     }
+
+    @GetMapping("/posts/save")
+    public String postsSave(){
+        return "posts-save"; //posts-save 라는 mustache 파일을 리턴한다. 라우팅
+    }
 }
