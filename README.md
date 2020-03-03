@@ -1,6 +1,7 @@
 # prac-springboot
 
 + 2020/2/25<br>
+  **problem :** <br>
   JPA Auditing을 테스트하는 과정에서 'postsRepository' bean defined in null, already has been registered ~ 에러 발생.
   
   **해결을 위해 시도한 방법**
@@ -13,4 +14,12 @@
   <br>
   관련이 있을지 모르겠지만, postsService 클래스에서 @transactional 어노테이션을 사용하기 위해 org.springframework.transaction.annotation.Transactional; 을 호출했어야 했는데 다른 라이브러리를 호출함<br>
   하지만 수정 후에도 테스트코드는 실행되지 않았었음.
-  
+  <br><br><br>
++ 2020/2/27<br>
+    **problem :** <br>
+    1. 게시물 등록을 구현하는 과정에서 index.js파일에 '$.ajax() is not a function' 에러 발생<br>
+      **==> cdn으로 jquery를 가져올때 버전의 문제. 'slim build'(?) 에서는 $.ajax()가 없다고 함.**
+    2. 게시물 등록 버튼을 클릭했을 때, 'could not execute statement SQL constraint....' 에러 발생<br>
+      **==> ajax에 넘겨주는 data를 잚못 입력하였다. (id=title 의 값을 넘겨주어야하는데, #을 빼놓고 입력함.)**
+
+    
