@@ -1,10 +1,12 @@
 package com.jojoldu.book.springboot.web;
 
 import com.jojoldu.book.springboot.service.posts.PostsService;
+import com.jojoldu.book.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 //@RequiredArgsConstructor는 final 혹은 @Nonnull 필드에 대해서 생성자를 생성한다.
 @RequiredArgsConstructor
@@ -28,4 +30,11 @@ public class IndexController {
         return "posts-save"; //posts-save 라는 mustache 파일을 리턴한다. 라우팅
     }
 
+    @GetMapping("/posts/update/{id}")
+    public String postsUpdate(@PathVariable Long id, Model model) {
+        PostsResponseDto dto = postsService.findById(id);
+        model.addAttribute("post", dto);
+
+        return "posts-update";
+    }
 }
