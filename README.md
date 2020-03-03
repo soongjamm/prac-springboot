@@ -21,5 +21,15 @@
       **==> cdn으로 jquery를 가져올때 버전의 문제. 'slim build'(?) 에서는 $.ajax()가 없다고 함.**
     2. 게시물 등록 버튼을 클릭했을 때, 'could not execute statement SQL constraint....' 에러 발생<br>
       **==> ajax에 넘겨주는 data를 잚못 입력하였다. (id=title 의 값을 넘겨주어야하는데, #을 빼놓고 입력함.)**
+      
++ 2020/3/4<br>
+    **problem :** <br>
+    1. 게시물 수정화면이 뜨지 않고 **'failed to convert java.lang.string to java.lang.long'** 에러 발생<br>
+      **==> templete 경로 문제**
+    2. 게시물 수정화면에서 textarea에 원래 내용이 표시되지 않음<br>
+      **==> {{post.content}}를 value속성에 넣었는데, <textarea>시작과 종료태그 사이에 넣어주어야 함.**<br>
+    3. 삭제 버튼을 클릭시 fail.<br>
+      **==> ajax에서 fail로 가는경우 지금까지 모두 오타 문제였음. 이번에는 id 변수를 생성하지 않았다.**<br>
 
+    
     
