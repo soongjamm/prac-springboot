@@ -1,5 +1,9 @@
 # prac-springboot
 
+
+
+--- 
+
 + 2020/2/25<br>
   **problem :** <br>
   JPA Auditing을 테스트하는 과정에서 'postsRepository' bean defined in null, already has been registered ~ 에러 발생.
