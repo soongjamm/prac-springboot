@@ -21,7 +21,7 @@ notifications:
       - kimstz0303@gmail.com
 
 before_deploy:
-  - zip - r practice-springboot *
+  - zip -r practice-springboot *
   - mkdir -p deploy
   - mv practice-springboot.zip deploy/practice-springboot.zip
 
